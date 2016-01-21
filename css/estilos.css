@@ -1,0 +1,159 @@
+/*
+Esploras es una nube de archivos tanto públicos como privados.
+Copyright (C) 2016  Miguel Ángel Maldonado López.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+/* 
+    Created on : 20-ene-2016, 11:12:58
+    Author     : miguelmald
+*/
+
+@font-face {
+  font-family: Quicksand;
+  src: url(./fuentes/quicksand/QuicksandBold.otf);
+  font-family: Exo;
+  src: url(./fuentes/exo/Exo-Medium.otf)
+}
+* {
+    box-sizing: border-box;
+} 
+ /* Para móviles: */
+[class*="col-"] {
+    width: 100%;
+    float: left;
+    padding: 15px;
+    display: block;
+}
+/* Para ordenadores: */
+@media only screen and (min-width: 768px) {
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+.cabecera{
+    font-size: 1.5em;
+    font-family: Exo; 
+}
+body {
+	background: #fff;
+        background-image: url('./patrones/subtle-patterns/subtle-pattern-7.jpg');
+	color: #666;
+	font: 90%/180% Arial, Helvetica, sans-serif;
+	width: 800px;
+	max-width: 96%;
+	margin: 0 auto;
+}
+a {
+	color: #69C;
+	text-decoration: none;
+}
+a:hover {
+	color: #F60;
+}
+h1 {
+	font-size: 1.7em;
+	line-height: 110%;
+	color: #000;
+}
+p {
+	margin: 0 0 20px;
+}
+/* Inicio del CSS del menú lateral*/
+.menuLateral{
+    
+}
+.elementoMenu:hover{
+    font-size: 1.25em;
+}
+/* Fin del CSS del menú lateral */
+/* CSS de la página de registro */
+.cabeceraRegistro{
+    font-size: 2em;
+    font-family: fantasy; 
+}
+.formuRegistro{
+    border: solid;
+    border-radius: 2px;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    
+}
+/* Fin del CSS de la página de registro */
+
+/* Inicio del CSS del cuadro de login */
+.formuLogin{
+    border: solid 2px;
+    border-radius: 4px;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+/* Fin del CSS del cuadro de login */
+
+/* CSS de la barra de búsqueda */
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+input[type=search] {
+	background: #ededed url("./iconos/busca.png") no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 100px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 230px;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+/* Fin del CSS de la barra de búsqueda */
