@@ -26,24 +26,53 @@ define("Registrado", 50);
 define("Invitado", 1);
 
 // Función que carga la cabecera, incluyendo el mensaje
-// de bienvenida (usuario y rol).
+// de bienvenida (usuario y rol) en caso de que esté la sesión iniciada.
 function cabecera(){
-    echo "<div class='col-12 cabecera'>ESPLORAS | "
-            . "Bienvenido,"
-            . " $_SESSION[usuario], tu rol es $_SESSION[rol].</div>";
+    echo "<div class='col-12 cabecera'>ESPLORAS | ";
     
+    // Muestra el mensaje de bienvenida si la sesión está iniciada.
+    if(isset($_SESSION['autenticado'])){
+        echo "Bienvenido, $_SESSION[usuario], tu rol es $_SESSION[rol].</div>";
+    }else{
+        echo "</div>";
+    }
 }
 
 // Función que carga el menú lateral.
-// Ahora mismo va incluído en el HTML, pero sería deseable no tener
-// que incluirlo en todas las páginas, cargarlo de forma dinámica.
-/*
-    function menu(){
-
-    echo ("");
+function menu(){
+    echo "<div class='col-3 menuLateral'>
+            <h3>Menú</h3>
+            <p class='elementoMenu'><a href='index.php'>Inicio</a></p>
+            <p class='elementoMenu'><a href='registrado/misarchivos.php'>Mis Archivos</a></p>
+            <p class='elementoMenu'><a href='registrado/miperfil.php'>Mi Perfil</a></p>
+            <p class='elementoMenu'><a href='cerrar.php'>Cerrar sesión</a></p>
+          </div>";
 }
-*/
 
+// Función que carga el cuadro de inicio de sesión.
+function cuadroLogin(){
+    echo "<div class='col-2 formuLogin'>
+            <h3>Inicie sesión</h3>
+            <form name='iniciaSesion' id='formularioSesion' method='post' action='control.php'>
+                <input type='text' name='login' placeholder='Usuario' required /><br>
+                <input type='password' name='password' placeholder='Contraseña' required /><br>
+                <input type='submit' name='autenticar' value='Iniciar sesión' onclick='inicioSesion(this);' /><br>
+                <p>¿No estás registrado? <a href='registrar.php'>Regístrate ahora.</a></p>
+            </form>
+          </div>";
+}
+
+// Función que carga el pie de página.
+function pie(){
+    echo "<div class='col-12 pie'> 
+            <h4></h4>
+            <p>ESPLORAS es software libre con licencia GPL v3.
+            Esto significa que eres libre de usar el código para lo que quieras,
+            siempre y cuando lo distribuyas bajo la misma licencia.
+            Por favor, si encuentras algún error o tienes alguna sugerencia,
+            escríbeme a esploras@openmailbox.org</p>
+            </div> ";
+}
 
 // Función que comprueba el rol del usuario para que no entre
 // donde no debe.
@@ -61,8 +90,4 @@ function seguridad($rol){
   }
 }
 
-// Función que oculta el cuadro de inicio de sesión una vez esta esté iniciada.
-function ocultaLogin(){
-  //
-}
 ?>

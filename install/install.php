@@ -37,9 +37,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             . "`login` VARCHAR(20) NOT NULL , "
             . "`password` VARCHAR(300) NOT NULL , "
             . "`email` VARCHAR(30) NOT NULL , "
-            . "`rol` SET('Administrador','Registrado','Invitado') NOT NULL , "
-            . "`cuota_disp` INT NOT NULL , "
-            . "`cuota_total` INT NOT NULL , "
+            . "`rol` SET('Administrador','Registrado','Invitado') NOT NULL default 'Registrado', "
+            . "`cuota_disp` INT NOT NULL default '1024', "
+            . "`cuota_total` INT NOT NULL default '1024' , "
             . "PRIMARY KEY (`id`)"
             . ") ENGINE = InnoDB;";
     mysqli_query($conex, $sql) or die("Error al crear la tabla Usuarios.");    
@@ -52,7 +52,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     $sql = "CREATE TABLE `esploras`.`archivos` ( "
             . "`id_archivo` INT(20) NOT NULL AUTO_INCREMENT , "
             . "`nombre` VARCHAR(30) NOT NULL , "
-            . "`descripcion` TEXT NOT NULL , "
+            . "`descripcion` TEXT, "
             . "`url` VARCHAR(100) NOT NULL , "
             . "`fecha_subida` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , "
             . "`publico` BOOLEAN NULL DEFAULT NULL , "
@@ -65,15 +65,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     // Aquí falta agregar la tabla "Formato".
     
     // Creación del usuario administrador.
-    $sql = "insert into usuarios values('1', 'admin', PASSWORD('Jairo2000'), "
-            . "'miguelmald@openmailbox.org', 'Administrador',"
-            . "'1024', '1024')";
+    $sql = "insert into usuarios (login, password, email, rol) values('admin', PASSWORD('Jairo2000'), "
+            . "'esploras@openmailbox.org', 'Administrador')";
     mysqli_query($conex, $sql) or die("Error al crear el usuario 'admin'.");
     
     echo "OK.<br>Proceso de instalación correcto.<br>Por favor, "
     . "borre el directorio de instalación.";
     
-    
+    // Cierre de la conexión.
     mysqli_close($conex);
 
 ?>

@@ -112,7 +112,20 @@ p {
     top: 5%;
 }
 /* Fin del CSS del cuadro de login */
-
+/* Inicio del CSS de los mensajes de error. */
+#msgError{
+    color: #F60;
+    
+}
+/*  */
+/* Inicio del CSS del pie de página */
+.pie{
+    position: static;
+    font-size: 0.75em;
+    bottom: 2%;
+  /*  background-color: #666; */
+}
+/* fin del CSS del pie de página */
 /* CSS de la barra de búsqueda */
 input {
 	outline: none;

@@ -45,8 +45,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         if($numFilas==1){
             $fila=  mysqli_fetch_array($resultado,MYSQLI_ASSOC);
 
-            //Crea una sesion o la propaga.
-            session_start();
+            //Crea una sesion o la propaga. 
+            session_start(); 
 
             //Fijamos las credenciales de sesión.
             $_SESSION['autenticado']=TRUE;
@@ -58,7 +58,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         }else{
             // Si el login es incorrecto, devuelve a la página
             // de inicio con un mensaje de error.
-            header("Location: index.php?error=FalloLoginPass");
+            header("Location: index.php?error=fallo en el usuario o la contraseña");
         }
     } 
 ?>

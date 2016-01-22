@@ -33,18 +33,12 @@ function registro(){
     var	password	=	formulario.password.value;
     var email           =       formulario.email.value;
 
-// Comprueba que el formato del email es correcto.
-    if (!/[a-z]\@[a-z].[a-z]/.test(email)){
-        alert("El campo 'email' debe ser del tipo minúsculas@minúsculas.minúsculas");
-        form.email.focus();
-        return false;
-    }
-
 // Comprueba que usuario y pass no sean iguales y que usuario no esté
 // incluído en contraseña.
-    if	(formulario.password.value.indexOf(formulario.login.value) != -1){
+    if	(password.indexOf(login) != -1){
         alert("La contraseña no puede contener al usuario.");
         formulario.password.focus();
         return false;
     }
+    return true;
 }

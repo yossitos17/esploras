@@ -50,7 +50,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/estilos.css" type="text/css"/> 
-    <script type="text/javascript" src="./js/javascript.js"></script>
+    <script type="text/javascript" src="./js/javascript.js?1"></script>
     <title>Registro</title>
   </head>
   <body>
@@ -60,9 +60,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     ?>
       <div class="col-7 formuRegistro">
           <h3>Formulario de registro.</h3>
-          <form name="registro" id="formularioRegistro" method="POST" action="">
+          <form name="registro_form" id="formularioRegistro" method="POST" action="" onsubmit="return registro();">
             <input type="text" name="login" placeholder="Usuario" required/><br>
-            <input type="text" name="email" placeholder="Correo electrónico" required/><br>
+            <input type="text" name="email" placeholder="Correo electrónico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/><br>
             <input type="password" name="password" placeholder="Contraseña" required/><br><br>
             <input type="submit" name="registrar" value="Registrarse" />
           </form>
