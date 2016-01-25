@@ -21,9 +21,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 // Paso de los roles a valor numérico para facilitar
 // las funciones de seguridad.
-define("Administrador", 100);
-define("Registrado", 50);
-define("Invitado", 1);
+define("Administrador", "Administrador");
+define("Registrado", "Registrado");
+define("Invitado", "Invitado");
 
 // Función que carga la cabecera, incluyendo el mensaje
 // de bienvenida (usuario y rol) en caso de que esté la sesión iniciada.
@@ -42,10 +42,10 @@ function cabecera(){
 function menu(){
     echo "<div class='col-3 menuLateral'>
             <h3>Menú</h3>
-            <p class='elementoMenu'><a href='index.php'>Inicio</a></p>
-            <p class='elementoMenu'><a href='registrado/misarchivos.php'>Mis Archivos</a></p>
-            <p class='elementoMenu'><a href='registrado/miperfil.php'>Mi Perfil</a></p>
-            <p class='elementoMenu'><a href='cerrar.php'>Cerrar sesión</a></p>
+            <p><a class='elementoMenu' href='index.php'>Inicio</a></p>
+            <p><a class='elementoMenu' href='registrado/misarchivos.php'>Mis Archivos</a></p>
+            <p><a class='elementoMenu' href='registrado/miperfil.php'>Mi Perfil</a></p>
+            <p><a class='elementoMenu' href='cerrar.php'>Cerrar sesión</a></p>
           </div>";
 }
 
@@ -74,18 +74,28 @@ function pie(){
             </div> ";
 }
 
+// Función que genera los resultados de la búsqueda.
+function resultado(){
+    echo "<p> Nombre del archivo <select name='extension'>
+                                    <option value='pdf'>PDF</option>
+                                    <option value='odt'>ODT</option>
+                                 </select>
+                         <a href='#'>Descargar</a>
+          </p>";
+}
+
 // Función que comprueba el rol del usuario para que no entre
 // donde no debe.
 function seguridad($rol){
   session_start();
   if(isset($_SESSION['autenticado'])){
-    if($_SESSION['rol']<$rol){
-      header("Location: index.php?error=SinPrivilegios");
+    if($_SESSION['rol']!==$rol){
+      header("Location: ../index.php?error=SinPrivilegios");
       exit();
     }
   }else{
       session_destroy();
-      header("Location: index.php?error=NoAutenticado");
+      header("Location: ../index.php?error=NoAutenticado");
       exit();
   }
 }

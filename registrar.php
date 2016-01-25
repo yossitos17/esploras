@@ -58,13 +58,20 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         require 'funciones.php';
         cabecera();
     ?>
+      <div class='col-3 menuLateral'>
+        <h3>Menú</h3>
+        <p><a class='elementoMenu' href='index.php'>Inicio</a></p>
+        <p><a class='elementoMenu' href='registrado/misarchivos.php'>Mis Archivos</a></p>
+        <p><a class='elementoMenu' href='registrado/miperfil.php'>Mi Perfil</a></p>
+        <p><a class='elementoMenu' href='cerrar.php'>Cerrar sesión</a></p>
+      </div>
       <div class="col-7 formuRegistro">
           <h3>Formulario de registro.</h3>
           <form name="registro_form" id="formularioRegistro" method="POST" action="" onsubmit="return registro();">
             <input type="text" name="login" placeholder="Usuario" required/><br>
             <input type="text" name="email" placeholder="Correo electrónico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/><br>
             <input type="password" name="password" placeholder="Contraseña" required/><br><br>
-            <input type="submit" name="registrar" value="Registrarse" />
+            <input type="submit" name="registrar" value="Registrarse" /><br>
           </form>
       </div>  
   </body>

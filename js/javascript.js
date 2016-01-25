@@ -33,10 +33,17 @@ function registro(){
     var	password	=	formulario.password.value;
     var email           =       formulario.email.value;
 
-// Comprueba que usuario y pass no sean iguales y que usuario no esté
+// Comprueba que usuario y password no sean iguales y que usuario no esté
 // incluído en contraseña.
     if	(password.indexOf(login) != -1){
         alert("La contraseña no puede contener al usuario.");
+        formulario.password.focus();
+        return false;
+    }
+    
+    // Comprueba que la contraseña tenga al menos 8 caracteres.
+    if(password.length < 8){
+        alert ("La contraseña debe tener al menos 8 caracteres.");
         formulario.password.focus();
         return false;
     }

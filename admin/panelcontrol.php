@@ -24,7 +24,20 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     </head>
     <body>
         <?php
-            
+            include_once '../funciones.php';
+            include_once '../control.php';
+            session_start();
+            seguridad(Administrador);
+            cabecera();
+            echo "
+            <div class='col-3 menuLateral'>
+            <h3>Menú</h3>
+                <p><a class='elementoMenu' href='../index.php'>Inicio</a></p>
+                <p><a class='elementoMenu' href='../registrado/misarchivos.php'>Mis Archivos</a></p>
+                <p><a class='elementoMenu' href='../registrado/miperfil.php'>Mi Perfil</a></p>
+                <p><a class='elementoMenu' href='../cerrar.php'>Cerrar sesión</a></p>
+             </div>
+            ";
         ?>
     </body>
 </html>
