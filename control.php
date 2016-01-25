@@ -58,7 +58,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         }else{
             // Si el login es incorrecto, devuelve a la página
             // de inicio con un mensaje de error.
-            header("Location: index.php?error=fallo en el usuario o la contraseña");
+            header("Location: index.php?error=Fallo en el usuario o la contraseña");
         }
     } 
 ?>

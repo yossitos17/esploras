@@ -89,13 +89,13 @@ function resultado(){
 function seguridad($rol){
   session_start();
   if(isset($_SESSION['autenticado'])){
-    if($_SESSION['rol']!==$rol){
-      header("Location: ../index.php?error=SinPrivilegios");
+    if($_SESSION['rol'] !== $rol || $_SESSION['rol'] !== "Administrador"){
+      header("Location: ../index.php?error=No tienes permiso");
       exit();
     }
   }else{
       session_destroy();
-      header("Location: ../index.php?error=NoAutenticado");
+      header("Location: ../index.php?error=No estás autenticado.");
       exit();
   }
 }
