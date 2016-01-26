@@ -19,8 +19,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-// Paso de los roles a valor numérico para facilitar
-// las funciones de seguridad.
+// Define las constantes de rol.
 define("Administrador", "Administrador");
 define("Registrado", "Registrado");
 define("Invitado", "Invitado");
@@ -28,25 +27,20 @@ define("Invitado", "Invitado");
 // Función que carga la cabecera, incluyendo el mensaje
 // de bienvenida (usuario y rol) en caso de que esté la sesión iniciada.
 function cabecera(){
-    echo "<div class='col-12 cabecera'>ESPLORAS | ";
+    echo "<div class='col-4 cabeceraEsploras'>ESPLORAS |</div> ";
     
     // Muestra el mensaje de bienvenida si la sesión está iniciada.
     if(isset($_SESSION['autenticado'])){
-        echo "Bienvenido, $_SESSION[usuario], tu rol es $_SESSION[rol].</div>";
+        echo "<div class='col-8 mensajeBienvenido' >Bienvenido, $_SESSION[usuario] ($_SESSION[rol]). ";
+        // Si eres administrador, te muestra el enlace al Panel de Control.
+        if($_SESSION['rol'] == "Administrador"){
+            echo "Acceda al <a href='admin/panelcontrol.php'>Panel de Control</a>.</div>";
+        }else{
+            echo "</div>";
+        }
     }else{
         echo "</div>";
     }
-}
-
-// Función que carga el menú lateral.
-function menu(){
-    echo "<div class='col-3 menuLateral'>
-            <h3>Menú</h3>
-            <p><a class='elementoMenu' href='index.php'>Inicio</a></p>
-            <p><a class='elementoMenu' href='registrado/misarchivos.php'>Mis Archivos</a></p>
-            <p><a class='elementoMenu' href='registrado/miperfil.php'>Mi Perfil</a></p>
-            <p><a class='elementoMenu' href='cerrar.php'>Cerrar sesión</a></p>
-          </div>";
 }
 
 // Función que carga el cuadro de inicio de sesión.
@@ -65,7 +59,6 @@ function cuadroLogin(){
 // Función que carga el pie de página.
 function pie(){
     echo "<div class='col-12 pie'> 
-            <h4></h4>
             <p>ESPLORAS es software libre con licencia GPL v3.
             Esto significa que eres libre de usar el código para lo que quieras,
             siempre y cuando lo distribuyas bajo la misma licencia.
@@ -89,7 +82,7 @@ function resultado(){
 function seguridad($rol){
   session_start();
   if(isset($_SESSION['autenticado'])){
-    if($_SESSION['rol'] !== $rol || $_SESSION['rol'] !== "Administrador"){
+    if(!($_SESSION['rol'] == $rol || $_SESSION['rol'] == "Administrador")){
       header("Location: ../index.php?error=No tienes permiso");
       exit();
     }

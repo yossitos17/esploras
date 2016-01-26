@@ -79,7 +79,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 PRIMARY KEY (`id_documento`),
                  foreign key (id_usuario) references usuarios(id)
                   )  ENGINE=InnoDB;";    
-                mysqli_query($conex, $sql) or die("Error al crear la tabla Archivos.");
+                mysqli_query($conex, $sql) or die("Error al crear la tabla Documentos.");
                 echo "OK.<br>Creando la tabla 'formatos'...  ";
 
 
