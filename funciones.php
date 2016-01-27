@@ -19,10 +19,33 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+/*
+ * Este archivo contiene todas las funciones PHP necesarias
+ * para gestionar la seguridad de la web y para generar
+ * los elementos HTML correspondientes a cada sesión.
+ * 
+ */
+
 // Define las constantes de rol.
 define("Administrador", "Administrador");
 define("Registrado", "Registrado");
 define("Invitado", "Invitado");
+
+// Función que comprueba el rol del usuario para que no entre
+// donde no debe.
+function seguridad($rol){
+  session_start();
+  if(isset($_SESSION['autenticado'])){
+    if(!($_SESSION['rol'] == $rol || $_SESSION['rol'] == "Administrador")){
+      header("Location: ../index.php?error=No tienes permiso");
+      exit();
+    }
+  }else{
+      session_destroy();
+      header("Location: ../index.php?error=No estás autenticado.");
+      exit();
+  }
+}
 
 // Función que carga la cabecera, incluyendo el mensaje
 // de bienvenida (usuario y rol) en caso de que esté la sesión iniciada.
@@ -77,20 +100,16 @@ function resultado(){
           </p>";
 }
 
-// Función que comprueba el rol del usuario para que no entre
-// donde no debe.
-function seguridad($rol){
-  session_start();
-  if(isset($_SESSION['autenticado'])){
-    if(!($_SESSION['rol'] == $rol || $_SESSION['rol'] == "Administrador")){
-      header("Location: ../index.php?error=No tienes permiso");
-      exit();
-    }
-  }else{
-      session_destroy();
-      header("Location: ../index.php?error=No estás autenticado.");
-      exit();
-  }
+// Cuadro de subida de archivos.
+function subeArchivo(){
+    echo "<div class='col-3 cuadroSubida'>
+              <h3>Suba un archivo</h3>
+              <form enctype='multipart/form-data' action='subir.php' method='POST'>
+                  <input type='hidden' name='MAX_FILE_SIZE' value='30000' />
+                  <input name='fichero_usuario' type='file' />
+                  <input type='submit' value='Enviar archivo' />
+              </form>
+          </div> ";
 }
 
 ?>

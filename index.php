@@ -22,6 +22,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <meta charset="UTF-8">
         <title>ESPLORAS</title>
         <link rel="stylesheet" href="./css/estilos.css" type="text/css"/> 
+        <link rel="icon" type="image/png" href="/favicon.png" sizes="96x96">
         <script type="text/javascript" src="./js/javascript.js"></script>
         <script type="text/javascript" src="./js/jquery-2.2.0.min.js"></script>
     </head>
@@ -55,13 +56,17 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <?php 
                 if(!isset($_SESSION['autenticado'])){
                     cuadroLogin();
-                }else{
-              //      mensajeBienvenida() = true;
                 }
 
                // Si hay mensaje de error, muéstralo.
                 if(isset($_GET['error'])){
                     echo "<p id='msgError'>Error: $_GET[error].</p>";
+                }
+                
+                // Si has iniciado sesión, muestra el cuadro de subida
+                // de archivos.
+                if(isset($_SESSION['autenticado'])){
+                    subeArchivo();
                 }
             ?>
             <div class="col-9 cuadroResultados">

@@ -17,20 +17,39 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
+
+<!--
+Página de borrado de cuenta.
+
+Debe permitir borrar la cuenta solo si se ha introducido bien la contraseña.
+Deberá hacer una consulta para ver si la contraseña es correcta y en caso
+de serlo, eliminar la cuenta.
+
+Si la contraseña es incorrecta, debe mostrar un mensaje de error.
+-->
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/estilos.css" type="text/css"/> 
         <script type="text/javascript" src="../js/javascript.js"></script>
         <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
-        <title>Mi Perfil</title>
+        <title>Borrar tu cuenta</title>
     </head>
     <body>
         <?php
             include_once '../funciones.php';
             include_once '../control.php';
+            include_once '../config/config.php';
             seguridad("Registrado");
             cabecera();
+            
+            function borraCuenta(){
+                if(isset($_POST['borrar'])){
+                    $conex = mysqli_connect($host, $user, $password, $database, $port);
+                    $sql = "delete * from usuarios where id = $_SESSION[id];";
+                }
+            }
+            
         ?>
         <div class="col-12 cuerpo">
             <div class='col-3 menuLateral'>
@@ -40,19 +59,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <p><a class='elementoMenu' href='miperfil.php'>Mi Perfil</a></p>
                 <p><a class='elementoMenu' href='../cerrar.php'>Cerrar sesión</a></p>
             </div>
-            <div class="col-9 perfil">
-                <h3>Mi Perfil</h3>
-                    <?php
-                        echo "<p>Nombre de usuario: $_SESSION[usuario]</p>";
-                        echo "<p>Tu correo electrónico: $_SESSION[email]";
-                        echo "<p>Espacio disponible: $_SESSION[cuota_disp]MB de $_SESSION[cuota_total]MB</p>";
-                        echo "¿Deseas borrar tu cuenta? Haz click <a href='borrarcuenta.php'>aquí</a>.";
-                    ?>
+            <div class="col-9 formuBorrar">
+                <h3>¿Está seguro de que desea borrar su cuenta?</h3>
+                <p>Si realmente desea borrar su cuenta, introduzca su contraseña:</p>
+                <form name="formuBorrar" action="borraCuenta()" method="post">
+                    <input type='password' name='password' placeholder='Contraseña' required /><br>
+                    <input type="submit" name="borrar" value="Borrar cuenta definitivamente"><br>
+                </form>
             </div>
-        
-            <?php 
-                pie();
-            ?>
         </div>
     </body>
 </html>

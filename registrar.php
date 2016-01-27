@@ -17,34 +17,35 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -->
+
+<!--
+    Página de registro.
+-->
+
 <?php
-    // Función que se inicia al pulsa el botón de registro.
-    // Aquí haría falta que se ejecute el Javascript antes
-    // que el PHP, para evitar sobrecargar el servidor con
-    // datos incorrectos (validación JS con función registro()).
-    
-    if(isset($_POST['registrar'])){
-        include_once 'config/config.php';
-        include_once 'funciones.php';
-             
-        // Conexión con la base de datos.
-        $conexion = mysqli_connect($host, $user, $password, $database, $port) 
-                or die("Error en "
-                . "la conexión con la Base de Datos.".mysqli_error($conexion));
+// Función que se inicia al pulsa el botón de registro.  
+if(isset($_POST['registrar'])){
+    include_once 'config/config.php';
+    include_once 'funciones.php';
 
-        // Inserción SQL del usuario. 
-        // Solo inserta login, password y email porque la BBDD
-        // asigna los valores por defecto de los demás campos.
-        $sql="insert into usuarios (login, password, email) values('$_POST[login]',"
-            . "PASSWORD('$_POST[password]'), '$_POST[email]');";
-        mysqli_query($conexion,$sql) or die("Error al insertar Usuario."
-              .mysqli_error($conexion));
+    // Conexión con la base de datos.
+    $conexion = mysqli_connect($host, $user, $password, $database, $port) 
+            or die("Error en "
+            . "la conexión con la Base de Datos.".mysqli_error($conexion));
 
-        // Cierre de la conexión. Se devuelve al usuario
-        // a la página principal.
-        mysqli_close($conexion);
-        header("Location: index.php");
-    }
+    // Inserción SQL del usuario. 
+    // Solo inserta login, password y email porque la BBDD
+    // asigna los valores por defecto de los demás campos.
+    $sql="insert into usuarios (login, password, email) values('$_POST[login]',"
+        . "PASSWORD('$_POST[password]'), '$_POST[email]');";
+    mysqli_query($conexion,$sql) or die("Error al insertar Usuario."
+          .mysqli_error($conexion));
+
+    // Cierre de la conexión. Se devuelve al usuario
+    // a la página principal.
+    mysqli_close($conexion);
+    header("Location: index.php");
+}
 ?>
 <html>
   <head>
