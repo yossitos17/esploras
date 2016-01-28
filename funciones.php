@@ -46,7 +46,6 @@ function seguridad($rol){
       exit();
   }
 }
-
 // Función que carga la cabecera, incluyendo el mensaje
 // de bienvenida (usuario y rol) en caso de que esté la sesión iniciada.
 function cabecera(){
@@ -65,7 +64,6 @@ function cabecera(){
         echo "</div>";
     }
 }
-
 // Función que carga el cuadro de inicio de sesión.
 function cuadroLogin(){
     echo "<div class='col-2 formuLogin'>
@@ -78,7 +76,6 @@ function cuadroLogin(){
             </form>
           </div>";
 }
-
 // Función que carga el pie de página.
 function pie(){
     echo "<div class='col-12 pie'> 
@@ -89,7 +86,6 @@ function pie(){
             escríbeme a esploras@openmailbox.org</p>
             </div> ";
 }
-
 // Función que genera los resultados de la búsqueda.
 function resultado(){
     echo "<p> Nombre del archivo <select name='extension'>

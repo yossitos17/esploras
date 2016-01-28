@@ -29,7 +29,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             include_once '../funciones.php';
             cabecera();
         ?>
-        
             <div class='col-3 menuLateral'>
             <h3>Menú</h3>
                 <p><a class='elementoMenu' href='../index.php'>Inicio</a></p>
@@ -39,19 +38,22 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
              </div>
         <div class="col-9 instalacion">
             <h3>Instalación</h3>
-            <?php   
+            <?php  
+                // Conexión con la base de datos.
                 echo "Conectando con el sistema gestor de bases de datos... ";
                 $conex = mysqli_connect($host, $user, $password) or die("Error en la conexión.");
-
+                
+                // Crea la base de datos.
                 echo "OK.<br>Creando la base de datos $database... ";
                 $sql = "create database $database;";
                 mysqli_query($conex, $sql) or die("Error al crear la base de datos.");
-
+                
+                // Establece uso de la base de datos.
                 echo "OK.<br>Creando la tabla 'usuarios'... ";
                 $sql = "use $database;";
                 mysqli_query($conex, $sql) or die("Error al utilizar la base de datos.");
 
-                // Consulta SQL que crea la tabla de usuarios.
+                // Crea la tabla de usuarios.
                 $sql = "CREATE TABLE if not exists `esploras`.`usuarios` (
                 `id` INT(15) NOT NULL AUTO_INCREMENT,
                 `login` VARCHAR(20) NOT NULL,
@@ -65,10 +67,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 mysqli_query($conex, $sql) or die("Error al crear la tabla Usuarios.");    
                 echo "OK.<br>Creando la tabla 'documentos'... ";
 
-                $sql = "use $database;";
-                mysqli_query($conex, $sql) or die("Error al utilizar la base de datos.");
-
-                // Consulta SQL que crea la tabla de documentos.
+                // Crea la tabla de documentos.
                 $sql = "CREATE TABLE if not exists `esploras`.`documentos` (
                 `id_documento` INT(20) NOT NULL AUTO_INCREMENT,
                 `nombre` VARCHAR(30) NOT NULL,
@@ -76,14 +75,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 `fecha_subida` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 `publico` BOOLEAN NULL DEFAULT NULL,
                 `id_usuario` INT(15) NOT NULL,
-                PRIMARY KEY (`id_documento`),
+                 PRIMARY KEY (`id_documento`),
                  foreign key (id_usuario) references usuarios(id)
                   )  ENGINE=InnoDB;";    
                 mysqli_query($conex, $sql) or die("Error al crear la tabla Documentos.");
                 echo "OK.<br>Creando la tabla 'formatos'...  ";
 
-
-                // Consulta SQL que crea la tabla de formatos.
+                // Crea la tabla de formatos.
                 $sql = "create table if not exists `esploras`.`formato` (
                     `id_formato` int(20) not null auto_increment,
                     `nombre` varchar(30),
@@ -92,7 +90,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 mysqli_query($conex, $sql) or die("Error al crear la tabla Formatos.");
                 echo "OK.<br>Creando tabla 'docsform'...";
 
-                // Consulta SQL que crea la tabla docsform, tabla de transición
+                // Crea la tabla docsform, tabla de transición
                 // entre Formatos y Documentos.
                 $sql = "create table if not exists `esploras`.`docform` (
                     `id_documento` INT(20) NOT NULL,
@@ -105,7 +103,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 mysqli_query($conex, $sql) or die("Error al crear la tabla docsform.");
                 echo "OK.<br>Creando usuario 'admin'... ";
 
-                // Creación del usuario administrador.
+                // Crea el usuario administrador.
                 $sql = "insert into usuarios (login, password, email, rol) values('admin', PASSWORD('Jairo2000'), "
                         . "'esploras@openmailbox.org', 'Administrador')";
                 mysqli_query($conex, $sql) or die("Error al crear el usuario 'admin'.");

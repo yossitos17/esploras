@@ -42,12 +42,9 @@ Si la contraseña es incorrecta, debe mostrar un mensaje de error.
             include_once '../config/config.php';
             seguridad("Registrado");
             cabecera();
-            
-            function borraCuenta(){
-                if(isset($_POST['borrar'])){
-                    $conex = mysqli_connect($host, $user, $password, $database, $port);
-                    $sql = "delete * from usuarios where id = $_SESSION[id];";
-                }
+            // Borra la cuenta en caso de que la contraseña sea correcta.
+            if(isset($_POST['borrar'])){
+                
             }
             
         ?>
@@ -62,7 +59,7 @@ Si la contraseña es incorrecta, debe mostrar un mensaje de error.
             <div class="col-9 formuBorrar">
                 <h3>¿Está seguro de que desea borrar su cuenta?</h3>
                 <p>Si realmente desea borrar su cuenta, introduzca su contraseña:</p>
-                <form name="formuBorrar" action="borraCuenta()" method="post">
+                <form name="formuBorrar" action="" method="post">
                     <input type='password' name='password' placeholder='Contraseña' required /><br>
                     <input type="submit" name="borrar" value="Borrar cuenta definitivamente"><br>
                 </form>

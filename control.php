@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  * Controla el proceso de autenticación y las variables de sesión.
  */
 
-// Verificamos que venimos del formulario de autenticacion
+// Verificamos que venimos del formulario de autenticación.
 if(isset($_POST['autenticar'])){ 
     include_once 'config/config.php';
 
@@ -42,7 +42,6 @@ if(isset($_POST['autenticar'])){
     $resultado= mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
 
     // Obtenemos el número de filas que devuelve la consulta.
-    // Si todo es correcto, debe ser solo una.
     $numFilas=  mysqli_num_rows($resultado);
 
     // Si solo hay una fila, crea una sesión con esas credenciales.
