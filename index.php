@@ -39,40 +39,18 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         // La cabecera.
         cabecera(); 
          ?>
-        <div class="col-12 cuerpo">
- <!--            <div class='col-12 menu'>
-                <h3>Menú</h3>
-                <p><a class='elementoMenu' href='index.php'>Inicio</a></p>
-                <p><a class='elementoMenu' href='registrado/misarchivos.php'>Mis Archivos</a></p>
-                <p><a class='elementoMenu' href='registrado/miperfil.php'>Mi Perfil</a></p>
-                <p><a class='elementoMenu' href='cerrar.php'>Cerrar sesión</a></p>
-            </div>-->
-
-
-            <div class="col-12 menu" id="cssmenu">
+        <div>
+            <!-- Menú. -->
+            <div class="col-12 menu">
                 <ul>
-               <li><a href='#'>Inicio</a></li>
-               <li class='active has-sub'><a href='#'>Mis Archivos</a>
-                  <ul>
-                     <li class='has-sub'><a href='#'>Product 1</a>
-                        <ul>
-                           <li><a href='#'>Sub Product</a></li>
-                           <li><a href='#'>Sub Product</a></li>
-                        </ul>
-                     </li>
-                     <li class='has-sub'><a href='#'>Product 2</a>
-                        <ul>
-                           <li><a href='#'>Sub Product</a></li>
-                           <li><a href='#'>Sub Product</a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </li>
-               <li><a href='#'>Mi Perfil</a></li>
-               <li><a href='#'>Contacto</a></li>
-            </ul>
+                    <li class="boton"><a href='index.php'>Inicio</a></li>
+                    <li class="boton"><a href='registrado/misarchivos.php'>Mis Archivos</a></li>
+                    <li class="boton"><a href='registrado/miperfil.php'>Mi Perfil</a></li>
+                </ul>
             </div>
-             <div class="col-6 cuadroBusqueda">
+ 
+            <!-- Cuadro de búsqueda. -->
+            <div class="col-6 cuadroBusqueda">
                 <h3>Búsqueda</h3>
                 <form>
                     <input type="search" id="busqueda" placeholder="Buscar" onsubmit="#">
