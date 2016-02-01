@@ -30,15 +30,20 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 include_once '../funciones.php';
                 include_once '../control.php';
                 seguridad("Registrado");
-                cabecera();
         ?>
         <div class="col-12 cuerpo">
-            <div class='col-3 menuLateral'>
-                <h3>Menú</h3>
-                <p><a class='elementoMenu' href='../index.php'>Inicio</a></p>
-                <p><a class='elementoMenu' href='misarchivos.php'>Mis Archivos</a></p>
-                <p><a class='elementoMenu' href='miperfil.php'>Mi Perfil</a></p>
-                <p><a class='elementoMenu' href='../cerrar.php'>Cerrar sesión</a></p>
+            <div class='col-12 cabeceraEsploras'>
+                ESPLORAS | 
+            </div>
+            <!-- Menú -->
+            <div class="col-12 menu">
+                <ul>
+                    <li class="boton"><a href='../index.php'>Inicio</a></li>
+                    <li class="boton"><a href='misarchivos.php'>Mis Archivos</a></li>
+                    <li class='boton'><a href='miperfil.php'>Mi Perfil<?php miperfil(); ?></a></li>
+                    <?php muestraPanel(); ?>
+                    <li class="boton"><a href="../cerrar.php">Cerrar sesión</a></li>
+                </ul>
             </div>
             <div class="col-6 cuadroBusqueda">
                 <h3>Búsqueda</h3>

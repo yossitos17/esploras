@@ -23,7 +23,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  * Este archivo contiene todas las funciones PHP necesarias
  * para gestionar la seguridad de la web y para generar
  * los elementos HTML correspondientes a cada sesión.
- * 
  */
 
 // Define las constantes de rol.
@@ -46,22 +45,16 @@ function seguridad($rol){
       exit();
   }
 }
-// Función que carga la cabecera, incluyendo el mensaje
-// de bienvenida (usuario y rol) en caso de que esté la sesión iniciada.
-function cabecera(){
-    echo "<div class='col-4 cabeceraEsploras'>ESPLORAS |</div> ";
-    
-    // Muestra el mensaje de bienvenida si la sesión está iniciada.
-    if(isset($_SESSION['autenticado'])){
-        echo "<div class='col-8 mensajeBienvenido' >Bienvenido, $_SESSION[usuario] ($_SESSION[rol]). ";
-        // Si eres administrador, te muestra el enlace al Panel de Control.
-        if($_SESSION['rol'] == "Administrador"){
-            echo "Acceda al <a href='admin/panelcontrol.php'>Panel de Control</a>.</div>";
-        }else{
-            echo "</div>";
-        }
-    }else{
-        echo "</div>";
+// Inserta el botón MI PERFIL y el usuario en el menú.
+function miperfil(){
+    if(isset($_SESSION[autenticado])){
+            echo " ($_SESSION[usuario])";
+    }
+}
+// Inserta el botón del PANEL DE CONTROL si eres administrador.
+function muestraPanel(){
+    if($_SESSION['rol'] == "Administrador"){
+            echo "<li class='boton'><a href='admin/panelcontrol.php'>Panel de Control</a></li>";
     }
 }
 // Función que carga el cuadro de inicio de sesión.
@@ -80,8 +73,6 @@ function cuadroLogin(){
 function pie(){
     echo "<div class='col-12 pie'> 
             <p>ESPLORAS es software libre con licencia GPL v3.
-            Esto significa que eres libre de usar el código para lo que quieras,
-            siempre y cuando lo distribuyas bajo la misma licencia.
             Por favor, si encuentras algún error o tienes alguna sugerencia,
             escríbeme a esploras@openmailbox.org</p>
             </div> ";
@@ -95,17 +86,17 @@ function resultado(){
                          <a href='#'>Descargar</a>
           </p>";
 }
-
 // Cuadro de subida de archivos.
 function subeArchivo(){
-    echo "<div class='col-3 cuadroSubida'>
-              <h3>Suba un archivo</h3>
+    if(isset($_SESSION['autenticado'])){
+        echo "<h3>Suba un archivo</h3>
               <form enctype='multipart/form-data' action='subir.php' method='POST'>
                   <input type='hidden' name='MAX_FILE_SIZE' value='30000' />
                   <input name='fichero_usuario' type='file' />
                   <input type='submit' value='Enviar archivo' />
-              </form>
-          </div> ";
-}
+              </form>";
+    }
+    
 
+}
 ?>

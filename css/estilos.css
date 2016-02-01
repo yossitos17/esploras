@@ -119,9 +119,10 @@ p {
 /*  */
 /* Inicio del CSS del pie de página */
 .pie{
-    position: static;
-    font-size: 0.75em;
+    position: absolute;
     bottom: 2%;
+    font-size: 0.75em;
+
 }
 /* fin del CSS del pie de página */
 /* CSS de la barra de búsqueda */
