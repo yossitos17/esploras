@@ -27,7 +27,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <?php
             include_once '../config/config.php';
             include_once '../funciones.php';
-            cabecera();
         ?>
             <div class='col-3 menuLateral'>
             <h3>Menú</h3>
@@ -54,37 +53,37 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 mysqli_query($conex, $sql) or die("Error al utilizar la base de datos.");
 
                 // Crea la tabla de usuarios.
-                $sql = "CREATE TABLE if not exists `esploras`.`usuarios` (
-                `id` INT(15) NOT NULL AUTO_INCREMENT,
-                `login` VARCHAR(20) NOT NULL,
-                `password` VARCHAR(300) NOT NULL,
-                `email` VARCHAR(30) NOT NULL,
-                `rol` SET('Administrador', 'Registrado', 'Invitado') NOT NULL default 'Registrado',
-                `cuota_disp` INT NOT NULL default '1024',
-                `cuota_total` INT NOT NULL default '1024',
-                PRIMARY KEY (`id`)
+                $sql = "CREATE TABLE if not exists esploras.usuarios (
+                id INT(15) NOT NULL AUTO_INCREMENT,
+                login VARCHAR(20) NOT NULL,
+                password VARCHAR(300) NOT NULL,
+                email VARCHAR(30) NOT NULL,
+                rol SET('Administrador', 'Registrado', 'Invitado') NOT NULL default 'Registrado',
+                cuota_disp INT NOT NULL default '1024',
+                cuota_total INT NOT NULL default '1024',
+                PRIMARY KEY (id)
             )  ENGINE=InnoDB;";
                 mysqli_query($conex, $sql) or die("Error al crear la tabla Usuarios.");    
                 echo "OK.<br>Creando la tabla 'documentos'... ";
 
                 // Crea la tabla de documentos.
-                $sql = "CREATE TABLE if not exists `esploras`.`documentos` (
-                `id_documento` INT(20) NOT NULL AUTO_INCREMENT,
-                `nombre` VARCHAR(30) NOT NULL,
-                `descripcion` TEXT,
-                `fecha_subida` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                `publico` BOOLEAN NULL DEFAULT NULL,
-                `id_usuario` INT(15) NOT NULL,
-                 PRIMARY KEY (`id_documento`),
+                $sql = "CREATE TABLE if not exists esploras.documentos (
+                id_documento INT(20) NOT NULL AUTO_INCREMENT,
+                nombre VARCHAR(30) NOT NULL,
+                descripcion TEXT,
+                fecha_subida TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                publico BOOLEAN NULL DEFAULT NULL,
+                id_usuario INT(15) NOT NULL,
+                 PRIMARY KEY (id_documento),
                  foreign key (id_usuario) references usuarios(id)
                   )  ENGINE=InnoDB;";    
                 mysqli_query($conex, $sql) or die("Error al crear la tabla Documentos.");
                 echo "OK.<br>Creando la tabla 'formatos'...  ";
 
                 // Crea la tabla de formatos.
-                $sql = "create table if not exists `esploras`.`formato` (
-                    `id_formato` int(20) not null auto_increment,
-                    `nombre` varchar(30),
+                $sql = "create table if not exists esploras.formato (
+                    id_formato int(20) not null auto_increment,
+                    nombre varchar(30),
                     primary key (id_formato)
                     ) ENGINE=InnoDB;";
                 mysqli_query($conex, $sql) or die("Error al crear la tabla Formatos.");
@@ -92,10 +91,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
                 // Crea la tabla docsform, tabla de transición
                 // entre Formatos y Documentos.
-                $sql = "create table if not exists `esploras`.`docform` (
-                    `id_documento` INT(20) NOT NULL,
-                    `id_formato` int(20) not null,
-                    `url` varchar(50) not null,
+                $sql = "create table if not exists esploras.docform (
+                    id_documento INT(20) NOT NULL,
+                    id_formato int(20) not null,
+                    url varchar(50) not null,
                     primary key (url),
                     FOREIGN KEY (id_documento) REFERENCES documentos(id_documento),
                     FOREIGN KEY (id_formato) REFERENCES formato(id_formato)

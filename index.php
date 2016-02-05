@@ -76,6 +76,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 if(isset($_GET['error'])){
                     echo "<p id='msgError'>Error: $_GET[error].</p>";
                 }
+                
+            ?>
+        </div>
+        <div class="pie">
+            <?php
                 // Pie de página.
                 pie();
             ?>

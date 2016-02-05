@@ -71,11 +71,9 @@ function cuadroLogin(){
 }
 // Función que carga el pie de página.
 function pie(){
-    echo "<div class='col-12 pie'> 
-            <p>ESPLORAS es software libre con licencia GPL v3.
+    echo "ESPLORAS es software libre con licencia GPL v3.
             Por favor, si encuentras algún error o tienes alguna sugerencia,
-            escríbeme a esploras@openmailbox.org</p>
-            </div> ";
+            escríbeme a esploras@openmailbox.org";
 }
 // Función que genera los resultados de la búsqueda.
 function resultado(){
