@@ -50,11 +50,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
 }
-.cabeceraEsploras{
+.cabecera{
     font-size: 1.5em;
     font-family: Exo; 
 }
-body {
+body{
 	background: #fff;
         background-image: url('./patrones/subtle-patterns/subtle-pattern-10.jpg');
 	color: #666;
@@ -63,22 +63,21 @@ body {
 	max-width: 96%;
 	margin: 0 auto;
 }
-a {
+a{
 	color: #69C;
 	text-decoration: none;
 }
-a:hover {
+a:hover{
 	color: #F60;
 }
-h1 {
+h1{
 	font-size: 1.7em;
 	line-height: 110%;
 	color: #000;
 }
-p {
+p{
 	margin: 0 0 20px;
 }
-/* CSS de la página de registro */
 .cabeceraRegistro{
     font-size: 2em;
     font-family: fantasy; 
@@ -87,14 +86,8 @@ p {
     border: solid;
     border-radius: 2px;
     text-align: center;
-    margin-top: 5%;
-   /* margin-left: 20%;
-    margin-right: 20%;*/
-    
+    margin-top: 5%; 
 }
-/* Fin del CSS de la página de registro */
-
-/* Inicio del CSS del cuadro de login */
 .formuLogin{
     border: solid 2px;
     border-radius: 4px;
@@ -102,21 +95,20 @@ p {
     right: 5%;
     top: 5%;
 }
-/* Fin del CSS del cuadro de login */
-/* Inicio del CSS de los mensajes de error. */
-#msgError{
+#error{
     color: #F60;
-    
+    font-size: 0.75em;
+
 }
-/*  */
+
 /* Inicio del CSS del pie de página */
 .pie{
     position: absolute;
     bottom: 2%;
     font-size: 0.75em;
-
 }
-/* fin del CSS del pie de página */
+/* Fin del CSS del pie de página */
+
 /* CSS de la barra de búsqueda */
 input {
 	outline: none;
@@ -128,10 +120,10 @@ input[type=search] {
 	font-size: 100%;
 }
 input::-webkit-search-decoration,
-input::-webkit-search-cancel-button {
+input::-webkit-search-cancel-button{
 	display: none; 
 }
-input[type=search] {
+input[type=search]{
 	background: #ededed url("./iconos/busca.png") no-repeat 9px center;
 	border: solid 1px #ccc;
 	padding: 9px 10px 9px 32px;
@@ -145,7 +137,7 @@ input[type=search] {
 	-moz-transition: all .5s;
 	transition: all .5s;
 }
-input[type=search]:focus {
+input[type=search]:focus{
 	width: 230px;
 	background-color: #fff;
 	border-color: #66CC75;
@@ -154,13 +146,14 @@ input[type=search]:focus {
 	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
 	box-shadow: 0 0 5px rgba(109,207,246,.5);
 }
-input:-moz-placeholder {
+input:-moz-placeholder{
 	color: #999;
 }
-input::-webkit-input-placeholder {
+input::-webkit-input-placeholder{
 	color: #999;
 }
 /* Fin del CSS de la barra de búsqueda */
+
 /* Inicio del estilo del menú */
 /* Estilos base del menú.
  * Color de fondo, margenes, elimina el estilo de lista, fuente, etc. 
@@ -205,11 +198,11 @@ input::-webkit-input-placeholder {
   height: 0;
 }
 /* Elementos de la lista del menú. */
-.menu > ul > li {
+.menu > ul > li{
   float: left;
 }
 /* Enlaces en los botones del menú. */
-.menu > ul > li > a {
+.menu > ul > li > a{
     padding: 20px;
     font-size: 12px;
     text-decoration: none;
@@ -223,11 +216,8 @@ input::-webkit-input-placeholder {
 }
 /* Cambia el color de las letras al pasar por encima o hacer click. */
 .menu > ul > li:hover > a,
-.menu > ul > li.active > a {
+.menu > ul > li.active > a{
   color: #009ae1;
 }
-
-
-
 
 /* Fin del estilo del menú */

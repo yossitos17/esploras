@@ -59,15 +59,18 @@ function muestraPanel(){
 }
 // Función que carga el cuadro de inicio de sesión.
 function cuadroLogin(){
-    echo "<div class='col-2 formuLogin'>
-            <h3>Inicie sesión</h3>
-            <form name='iniciaSesion' id='formularioSesion' method='post' action='control.php'>
-                <input type='text' name='login' placeholder='Usuario' required /><br>
-                <input type='password' name='password' placeholder='Contraseña' required /><br>
-                <input type='submit' name='autenticar' value='Iniciar sesión' onclick='inicioSesion(this);' /><br>
-                <p>¿No estás registrado? <a href='registrar.php'>Regístrate ahora.</a></p>
-            </form>
-          </div>";
+    if(!isset($_SESSION['autenticado'])){
+        echo "<div class='col-2 formuLogin'>
+              <h3>Inicie sesión</h3>
+                <form name='iniciaSesion' id='formularioSesion' method='post' action='control.php'>
+
+                    <input type='text' name='login' placeholder='Usuario' required /><br>
+                    <input type='password' name='password' placeholder='Contraseña' required /><br>
+                    <input type='submit' name='autenticar' value='Iniciar sesión' onclick='inicioSesion(this);' /><br>
+                    <p>¿No estás registrado? <a href='registrar.php'>Regístrate ahora.</a></p>
+                </form>
+            </div>";
+    };
 }
 // Función que carga el pie de página.
 function pie(){
@@ -84,17 +87,10 @@ function resultado(){
                          <a href='#'>Descargar</a>
           </p>";
 }
-// Cuadro de subida de archivos.
-function subeArchivo(){
-    if(isset($_SESSION['autenticado'])){
-        echo "<h3>Suba un archivo</h3>
-              <form enctype='multipart/form-data' action='subir.php' method='POST'>
-                  <input type='hidden' name='MAX_FILE_SIZE' value='30000' />
-                  <input name='fichero_usuario' type='file' />
-                  <input type='submit' value='Enviar archivo' />
-              </form>";
+// Función que muestra los errores.
+function muestraError(){
+    if(isset($_GET['error'])){
+        echo "<div id='error'>Error: $_GET[error]</div>";
     }
-    
-
 }
 ?>

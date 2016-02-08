@@ -31,10 +31,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             include_once '../control.php';
             seguridad("Registrado");
         ?>
-        <div class="col-12 cuerpo">
-            <div class='col-12 cabeceraEsploras'>
-                ESPLORAS | 
-            </div>
+        <div class='col-12 cabecera'>
+            ESPLORAS | 
+        </div>
+        <div class="cuerpo">
             <!-- Menú -->
             <div class="col-12 menu">
                 <ul>
@@ -51,11 +51,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                         echo "<p>Nombre de usuario: $_SESSION[usuario]</p>";
                         echo "<p>Tu correo electrónico: $_SESSION[email]";
                         echo "<p>Espacio disponible: $_SESSION[cuota_disp]MB de $_SESSION[cuota_total]MB</p>";
-                        echo "¿Deseas borrar tu cuenta? Haz click <a href='borrarcuenta.php'>aquí</a>.";
                     ?>
             </div>
-        
-            <?php 
+        </div>
+        <div class="pie">
+            <?php
+                // Pie de página.
                 pie();
             ?>
         </div>

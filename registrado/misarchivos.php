@@ -31,10 +31,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 include_once '../control.php';
                 seguridad("Registrado");
         ?>
-        <div class="col-12 cuerpo">
-            <div class='col-12 cabeceraEsploras'>
-                ESPLORAS | 
-            </div>
+        <div class='col-12 cabecera'>
+            ESPLORAS | 
+        </div>
+        <div class="cuerpo">
             <!-- Menú -->
             <div class="col-12 menu">
                 <ul>
@@ -56,9 +56,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     resultado();
                 ?>
             </div>
-           <?php
+        </div>
+        <div class="pie">
+            <?php
+                // Pie de página.
                 pie();
-           ?>
+            ?>
         </div>
     </body>
 </html>

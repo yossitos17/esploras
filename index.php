@@ -23,7 +23,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <title>ESPLORAS</title>
         <link rel="stylesheet" href="./css/estilos.css" type="text/css"/> 
         <script type="text/javascript" src="./js/javascript.js"></script>
-        <script src="./js/script.js"></script>
         <script type="text/javascript" src="./js/jquery-2.2.0.min.js"></script>
     </head>
     <body>
@@ -31,14 +30,15 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             // Inclusión de funciones.php y control.php
             include_once 'funciones.php';
             include_once 'control.php';
+            include_once 'registrado/subir.php';
 
             // Inicia la sesión.
             session_start();
          ?>
+        <div class='col-12 cabecera'>
+            ESPLORAS | <?php muestraError(); ?>
+        </div>
         <div class="cuerpo">
-            <div class='col-12 cabeceraEsploras'>
-                ESPLORAS | 
-            </div>
             <!-- Menú -->
             <div class="col-12 menu">
                 <ul>
@@ -59,7 +59,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <!-- Cuadro de subida -->
             <div class="col-3 cuadroSubida">
                 <?php 
-                    subeArchivo(); 
+                    cuadroSubida();
                 ?>
             </div>
             <!-- Cuadro de resultados -->
@@ -68,15 +68,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     resultado();
                 ?>
             </div> 
-            <?php 
-                if(!isset($_SESSION['autenticado'])){
-                    cuadroLogin();
-                }
-               // Si hay mensaje de error, muéstralo.
-                if(isset($_GET['error'])){
-                    echo "<p id='msgError'>Error: $_GET[error].</p>";
-                }
-                
+            <?php
+                cuadroLogin();
             ?>
         </div>
         <div class="pie">
