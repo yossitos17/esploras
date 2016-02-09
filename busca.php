@@ -19,7 +19,9 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-    session_start();
-    session_destroy();
-    header("Location: ../index.php");
-?>
+/*
+ * Este archivo contiene todas las funciones PHP necesarias
+ * para gestionar la seguridad de la web y para generar
+ * los elementos HTML correspondientes a cada sesión.
+ */
+

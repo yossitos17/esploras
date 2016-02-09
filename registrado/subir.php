@@ -19,20 +19,32 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-$dir_subida = 'subidas/';
-$fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
-$uploadOk = 1;
-$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fichero_usuario"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
+include_once '../conf/config.php';
+include_once '../funciones.php';
+include_once '../control.php';
+
+seguridad("Registrado");
+$usuario = $_SESSION['login'];
+
+if(isset($_POST[submit])){
+    // Comprueba si existe el directorio del usuario. 
+    // Si no existe, lo crea.
+    if(file_exists("subidos/$usuario/")){
+        $dir_subida = "subidos/$usuario/";
+        echo "Existe la carpeta.<br>";
+    }else{
+        echo "No existe la carpeta.<br>";
+        mkdir("subidos/$usuario/");
+        echo "Ahora si existe.<br>";
+        $dir_subida = "subidos/$usuario/";
     }
+    
+    $fichero_subido = $dir_subida . "/" . basename($_FILES['fichero_usuario']['name']);
+    $uploadOk = 1;
+    
+    move_uploaded_file($_FILES["fichero_usuario"]["tmp_name"], $fichero_subido); 
+    echo "El archivo ". basename( $_FILES["fichero_usuario"]["name"]). " ha sido subido.";
+    
 }
 
 ?>

@@ -41,7 +41,7 @@ function seguridad($rol){
     }
   }else{
       session_destroy();
-      header("Location: ../index.php?error=No estás autenticado.");
+      header("Location: index.php?error=No estás autenticado.");
       exit();
   }
 }
@@ -70,7 +70,7 @@ function cuadroLogin(){
                     <p>¿No estás registrado? <a href='registrar.php'>Regístrate ahora.</a></p>
                 </form>
             </div>";
-    };
+    }
 }
 // Función que carga el pie de página.
 function pie(){
@@ -92,7 +92,7 @@ function cuadroSubida(){
     if(isset($_SESSION['autenticado'])){
         echo "<h3>Suba un archivo</h3>
               <form enctype='multipart/form-data' action='registrado/subir.php' method='post'>
-                <input type='file' name='fileToUpload' id='fileToUpload'>
+                <input type='file' name='fichero_usuario' id='fichero_usuario'>
                 <input type='submit' value='Subir archivo' name='submit'>
               </form>";
         

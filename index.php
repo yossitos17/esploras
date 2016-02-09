@@ -27,12 +27,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     </head>
     <body>
         <?php
-            // Inclusión de funciones.php y control.php
             include_once 'funciones.php';
             include_once 'control.php';
-            include_once 'registrado/subir.php';
 
-            // Inicia la sesión.
             session_start();
          ?>
         <div class='col-12 cabecera'>
@@ -53,7 +50,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
             <div class="col-9 cuadroBusqueda">
                 <h3>Búsqueda</h3>
                 <form>
-                    <input type="search" id="busqueda" placeholder="Buscar" onsubmit="#">
+                    <input type="search" id="busqueda" placeholder="Buscar" onsubmit="busca.php">
                 </form>
             </div>
             <!-- Cuadro de subida -->
