@@ -87,6 +87,17 @@ function resultado(){
                          <a href='#'>Descargar</a>
           </p>";
 }
+// Cuadro de subida de archivos.
+function cuadroSubida(){
+    if(isset($_SESSION['autenticado'])){
+        echo "<h3>Suba un archivo</h3>
+              <form enctype='multipart/form-data' action='registrado/subir.php' method='post'>
+                <input type='file' name='fileToUpload' id='fileToUpload'>
+                <input type='submit' value='Subir archivo' name='submit'>
+              </form>";
+        
+    }
+}
 // Función que muestra los errores.
 function muestraError(){
     if(isset($_GET['error'])){

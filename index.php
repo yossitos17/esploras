@@ -22,8 +22,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
         <meta charset="UTF-8">
         <title>ESPLORAS</title>
         <link rel="stylesheet" href="./css/estilos.css" type="text/css"/> 
-        <script type="text/javascript" src="./js/javascript.js"></script>
-        <script type="text/javascript" src="./js/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="scripts/javascript.js"></script>
+        <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
     </head>
     <body>
         <?php
@@ -46,7 +46,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     <li class="boton"><a href='registrado/misarchivos.php'>Mis Archivos</a></li>
                     <li class='boton'><a href='registrado/miperfil.php'>Mi Perfil<?php miperfil(); ?></a></li>
                     <?php muestraPanel(); ?>
-                    <li class="boton"><a href="cerrar.php">Cerrar sesión</a></li>
+                    <li class="boton"><a href="registrado/cerrarsesion.php">Cerrar sesión</a></li>
                 </ul>
             </div>
             <!-- Cuadro de búsqueda. -->

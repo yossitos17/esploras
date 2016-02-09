@@ -33,7 +33,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                 <p><a class='elementoMenu' href='../index.php'>Inicio</a></p>
                 <p><a class='elementoMenu' href='../registrado/misarchivos.php'>Mis Archivos</a></p>
                 <p><a class='elementoMenu' href='../registrado/miperfil.php'>Mi Perfil</a></p>
-                <p><a class='elementoMenu' href='../cerrar.php'>Cerrar sesión</a></p>
+                <p><a class='elementoMenu' href='../registrado/cerrarsesion.php'>Cerrar sesión</a></p>
              </div>
         <div class="col-9 instalacion">
             <h3>Instalación</h3>

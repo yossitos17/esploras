@@ -21,8 +21,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/estilos.css" type="text/css"/> 
-        <script type="text/javascript" src="../js/javascript.js"></script>
-        <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="../scripts/javascript.js"></script>
+        <script type="text/javascript" src="../scripts/jquery-2.2.0.min.js"></script>
         <title>Panel de Control</title>
     </head>
     <body>
@@ -41,7 +41,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     <li class="boton"><a href='../registrado/misarchivos.php'>Mis Archivos</a></li>
                     <li class="boton"><a href='../registrado/miperfil.php'>Mi Perfil<?php miperfil(); ?></a></li>
                     <?php muestraPanel(); ?>
-                    <li class="boton"><a href="../cerrar.php">Cerrar sesión</a></li>
+                    <li class="boton"><a href="../registrado/cerrarsesion.php">Cerrar sesión</a></li>
                 </ul>
             </div>
         <div class="col-9 panel">

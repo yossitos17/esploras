@@ -27,7 +27,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
     // Función que se inicia al pulsa el botón de registro.  
     if(isset($_POST['registrar'])){
-        include_once 'config/config.php';
+        include_once 'conf/config.php';
         include_once 'funciones.php';
 
         // Conexión con la base de datos.
@@ -53,7 +53,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./css/estilos.css" type="text/css"/> 
-        <script type="text/javascript" src="./js/javascript.js?1"></script>
+        <script type="text/javascript" src="scripts/javascript.js?1"></script>
         <title>Registro</title>
     </head>
     <body>
@@ -68,7 +68,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     <li class="boton"><a href='registrado/misarchivos.php'>Mis Archivos</a></li>
                     <li class='boton'><a href='registrado/miperfil.php'>Mi Perfil<?php miperfil(); ?></a></li>
                     <?php muestraPanel(); ?>
-                    <li class="boton"><a href="cerrar.php">Cerrar sesión</a></li>
+                    <li class="boton"><a href="registrado/cerrarsesion.php">Cerrar sesión</a></li>
                 </ul>
             </div>
             <!-- Formulario de registro -->

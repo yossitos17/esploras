@@ -16,10 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-/* 
-    Created on : 20-ene-2016, 11:12:58
-    Author     : miguelmald
-*/
 
 @font-face {
   font-family: Exo;
@@ -56,7 +52,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 }
 body{
 	background: #fff;
-        background-image: url('./patrones/subtle-patterns/subtle-pattern-10.jpg');
+        background-image: url('../img/bgr-pattern.jpg');
 	color: #666;
 	font: 90%/180% Arial, Helvetica, sans-serif;
 	width: 800px;
@@ -100,16 +96,11 @@ p{
     font-size: 0.75em;
 
 }
-
-/* Inicio del CSS del pie de página */
 .pie{
     position: absolute;
     bottom: 2%;
     font-size: 0.75em;
 }
-/* Fin del CSS del pie de página */
-
-/* CSS de la barra de búsqueda */
 input {
 	outline: none;
 }
@@ -124,7 +115,7 @@ input::-webkit-search-cancel-button{
 	display: none; 
 }
 input[type=search]{
-	background: #ededed url("./iconos/busca.png") no-repeat 9px center;
+	background: #ededed url("../img/busca.png") no-repeat 9px center;
 	border: solid 1px #ccc;
 	padding: 9px 10px 9px 32px;
 	width: 100px;
@@ -152,12 +143,6 @@ input:-moz-placeholder{
 input::-webkit-input-placeholder{
 	color: #999;
 }
-/* Fin del CSS de la barra de búsqueda */
-
-/* Inicio del estilo del menú */
-/* Estilos base del menú.
- * Color de fondo, margenes, elimina el estilo de lista, fuente, etc. 
- */
 .menu{
     background-color: white;
     color: black;
@@ -219,5 +204,3 @@ input::-webkit-input-placeholder{
 .menu > ul > li.active > a{
   color: #009ae1;
 }
-
-/* Fin del estilo del menú */

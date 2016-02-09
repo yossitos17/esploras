@@ -19,13 +19,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-$target_dir = "subidos/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$dir_subida = 'subidas/';
+$fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    $check = getimagesize($_FILES["fichero_usuario"]["tmp_name"]);
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
@@ -35,15 +35,4 @@ if(isset($_POST["submit"])) {
     }
 }
 
-// Cuadro de subida de archivos.
-function cuadroSubida(){
-    if(isset($_SESSION['autenticado'])){
-        echo "<h3>Suba un archivo</h3>
-              <form enctype='multipart/form-data' action='subir.php' method='post'>
-                <input type='file' name='fileToUpload' id='fileToUpload'>
-                <input type='submit' value='Subir archivo' name='submit'>
-              </form>";
-        
-    }
-}
 ?>
